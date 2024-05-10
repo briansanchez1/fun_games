@@ -1,5 +1,5 @@
 import "./App.css";
-import Cipher_Game from "./pages/cipher_game";
+import CipherGame from "./pages/cipher_game";
 import Dashboard from "./pages/Dashboard";
 import {
   BrowserRouter as Router,
@@ -14,7 +14,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/cipher_game" element={<Cipher_Game />} />
+          <Route path="/cipher_game" element={<CipherGame/>} />
         </Routes>
       </Router>
     </div>
