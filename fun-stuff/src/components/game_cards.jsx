@@ -1,29 +1,22 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-const Game_Cards = () => {
+const Game_Cards = ({ gameName, gameDesc, gameLink }) => {
   return (
-    <Card sx={{ width: "150px" }}>
+    <Card>
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
-        </Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
+        <Typography sx={{ fontSize: 14 }}>{gameName}</Typography>
+        <Typography sx={{ fontSize: 12 }}>{gameDesc}</Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
+      <Button
+        href={gameLink ? "/" + gameLink : "/"}
+        sx={{ justifyContent: "center" }}
+      >
+        Play
+      </Button>
     </Card>
   );
 };
