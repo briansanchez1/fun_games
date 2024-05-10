@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import GameCards from "../components/game_cards";
 import { Container, Grid, Typography } from "@mui/material";
 
@@ -11,9 +11,15 @@ const Dashboard = () => {
       <Typography variant="h3" mb={2}>
         Brian's Favorite Games
       </Typography>
-      <Grid container direction="row" spacing={1} >
+      <Grid container direction="row" spacing={1}>
         <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-          <GameCards gameName={"Cipher Game"} gameDesc={"This is a game about Deciphering some text that is scrambled."} gameLink={"cipher_game"}/>
+          <GameCards
+            gameName={"Cipher Game"}
+            gameDesc={
+              "This is a game about Deciphering some text that is scrambled."
+            }
+            gameLink={"cipher_game"}
+          />
         </Grid>
         <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
           <GameCards gameName={"Game 2"} />
