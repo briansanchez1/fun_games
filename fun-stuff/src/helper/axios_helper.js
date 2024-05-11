@@ -8,7 +8,8 @@ export const fetchQuote = async () => {
   try {
     const response = await instance.get();
     if (response.status === 200) {
-      return response.data[0]?.content || "Error fetching quote.";
+      const quote = [response.data[0]?.author, response.data[0]?.content];
+      return quote || "Error fetching quote.";
     } else {
       throw new Error("Failed to fetch quote");
     }
