@@ -10,13 +10,14 @@ import { Link } from "@mui/material";
 
 const CipherGame = () => {
   const [quote, setQuote] = useState("");
+  const [author, setAuthor] = useState("");
   const [mappings, setMappings] = useState({});
   const [key, setKey] = useState(generateKey());
   const [encryptedQuote, setEncryptedQuote] = useState("");
 
   const isAlphabetCharacter = (char) => /[a-zA-Z]/.test(char);
 
-  const getWordsFromQuote = () => {
+  const getWordsFromQuote = (quote) => {
     const wordsMatch = quote.match(/[\w]+[.,'-]?\s?|\s/g);
     return wordsMatch || [];
   };
@@ -42,9 +43,10 @@ const CipherGame = () => {
     setKey(generateKey());
     try {
       const randomQuote = await fetchQuote();
-      setQuote(randomQuote.toUpperCase());
+      setQuote(randomQuote[1].toUpperCase());
+      setAuthor(randomQuote[0]);
 
-      const encrypted = encrypt(randomQuote, key);
+      const encrypted = encrypt(randomQuote[1], key);
       setEncryptedQuote(encrypted);
     } catch (error) {
       console.error("Error fetching new quote:", error);
@@ -59,9 +61,14 @@ const CipherGame = () => {
       }
     }
     setMappings(updatedMappings);
+    console.log(encryptedQuote);
+    console.log(quote);
+    console.log(words);
   };
 
-  const words = getWordsFromQuote();
+  const words = getWordsFromQuote(quote);
+
+  const encryptedWords = getWordsFromQuote(encryptedQuote);
 
   useEffect(() => {
     document.title = "Substitution Cipher";
@@ -74,7 +81,7 @@ const CipherGame = () => {
           Substition Cipher Game
         </Link>
       </Typography>
-      <Typography variant="h4">{encryptedQuote}</Typography>
+      <Typography variant="h4">Quote by {author}</Typography>
       <Grid container direction="row" mt={2} spacing={1}>
         {words.map((word, wordIndex) => (
           <Grid item key={wordIndex} display={"flex"}>
@@ -83,6 +90,7 @@ const CipherGame = () => {
                 <CipherInputs
                   key={charIndex}
                   char={char}
+                  encryptedChar={encryptedWords[wordIndex]}
                   charIndex={charIndex}
                   mappings={mappings}
                   updateMappings={updateMappings}
