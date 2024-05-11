@@ -6,10 +6,10 @@ import Typography from "@mui/material/Typography";
 
 const Game_Cards = ({ gameName, gameDesc, gameLink }) => {
   return (
-    <Card>
+    <Card sx={{borderRadius: "15px"}}>
       <CardContent>
-        <Typography sx={{ fontSize: 14 }}>{gameName}</Typography>
-        <Typography sx={{ fontSize: 12 }}>{gameDesc}</Typography>
+        <Typography sx={{ fontSize: 20 }}>{gameName}</Typography>
+        <Typography sx={{ fontSize: 14 }}>{gameDesc}</Typography>
       </CardContent>
       <Button
         href={gameLink ? "/" + gameLink : "/"}
