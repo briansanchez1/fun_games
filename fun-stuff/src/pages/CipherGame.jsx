@@ -105,18 +105,30 @@ const CipherGame = () => {
           </Grid>
         ))}
       </Grid>
-      <Button
-        onClick={checkCharacters}
-        sx={{ mt: 3, mr: 2, color: "black", border: "1px solid black" }}
-      >
-        Check
-      </Button>
-      <Button
-        onClick={fetchNewQuote}
-        sx={{ mt: 3, color: "black", border: "1px solid black" }}
-      >
-        New Game
-      </Button>
+
+      {quote === "" ? (
+        <Button
+          onClick={fetchNewQuote}
+          sx={{ mt: 3, color: "black", border: "1px solid black" }}
+        >
+          Play Game
+        </Button>
+      ) : (
+        <>
+          <Button
+            onClick={checkCharacters}
+            sx={{ mt: 3, mr: 2, color: "black", border: "1px solid black" }}
+          >
+            Check
+          </Button>{" "}
+          <Button
+            onClick={fetchNewQuote}
+            sx={{ mt: 3, color: "black", border: "1px solid black" }}
+          >
+            New Game
+          </Button>
+        </>
+      )}
     </Container>
   );
 };
