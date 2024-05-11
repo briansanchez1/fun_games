@@ -50,8 +50,7 @@ const CipherGame = () => {
       console.error("Error fetching new quote:", error);
     }
   };
-  fetchNewQuote();
-  
+
   const checkCharacters = () => {
     const updatedMappings = { ...mappings };
     for (const [key, value] of Object.entries(mappings)) {
