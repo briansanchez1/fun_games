@@ -1,5 +1,5 @@
 import "./App.css";
-import CipherGame from "./pages/cipher_game";
+import CipherGame from "./pages/CipherGame";
 import Dashboard from "./pages/Dashboard";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
