@@ -14,7 +14,6 @@ const CipherGame = () => {
   const [mappings, setMappings] = useState({});
   const [key, setKey] = useState(generateKey());
   const [encryptedQuote, setEncryptedQuote] = useState("");
-
   const isAlphabetCharacter = (char) => /[a-zA-Z]/.test(char);
 
   const getWordsFromQuote = (quote) => {
@@ -78,10 +77,11 @@ const CipherGame = () => {
           Substition Cipher Game
         </Link>
       </Typography>
-      <Typography variant="h4">
+      <Typography variant="h4" textAlign={"left"}>
         {quote === "" ? null : "Quote by "}
         {author}
       </Typography>
+
       <Grid container direction="row" my={2} spacing={1}>
         {words.map((word, wordIndex) => (
           <Grid item key={wordIndex} display={"flex"}>
@@ -115,12 +115,35 @@ const CipherGame = () => {
       </Grid>
 
       {quote === "" ? (
-        <Button
-          onClick={fetchNewQuote}
-          sx={{ my: 3, color: "black", border: "1px solid black" }}
-        >
-          Play Game
-        </Button>
+        <>
+          <Button
+            onClick={fetchNewQuote}
+            sx={{ mt: 1, color: "black", border: "1px solid black" }}
+          >
+            Start Game
+          </Button>
+          <Typography variant="h4" textAlign={"left"}>
+            How it works:
+          </Typography>
+          <Typography variant="h5" textAlign={"left"} mt={2}>
+            You are given a quote which has had most or all of it's characters
+            shuffled. It is up to you to solve this puzzle and figure out what
+            the original quote was.{" "}
+          </Typography>
+          <Typography variant="h5" textAlign={"left"} mt={2}>
+            For example, if the original quote was "Hello World.", then the
+            encrypted quote could be something like "Pobbe Aedbs."{" "}
+          </Typography>
+          <Typography
+            variant="h5"
+            textAlign={"left"}
+            mt={2}
+            fontWeight={"bold"}
+          >
+            It is important to note that it is possible for the letter to be the
+            same as the original. You could end up with "Polle Aedls."
+          </Typography>
+        </>
       ) : (
         <>
           <Button
