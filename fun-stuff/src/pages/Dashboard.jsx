@@ -11,7 +11,7 @@ const Dashboard = () => {
   return (
     <Container>
       <Typography variant="h3" mb={2}>
-        Brian's Favorite Games
+        Fun Games
       </Typography>
       <Grid container direction="row" spacing={1}>
         <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
