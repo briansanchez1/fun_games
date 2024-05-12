@@ -26,8 +26,9 @@ const CipherInputs = ({
           minLength: 1,
           maxLength: 1,
           style: {
-            fontSize: 25,
+            fontSize: 26,
             textAlign: "center",
+            fontWeight: "bold",
             border: "1px solid black",
           },
         }}
@@ -40,7 +41,7 @@ const CipherInputs = ({
           margin: "2px",
         }}
       />
-      <Typography variant="h4" color="initial">
+      <Typography variant="h4" color="initial" sx={{color: "#797979", fontSize: "20px"}}>
         {encryptedChar[charIndex]}
       </Typography>
     </Stack>

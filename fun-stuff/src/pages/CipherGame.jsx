@@ -61,9 +61,6 @@ const CipherGame = () => {
       }
     }
     setMappings(updatedMappings);
-    console.log(encryptedQuote);
-    console.log(quote);
-    console.log(words);
   };
 
   const words = getWordsFromQuote(quote);
@@ -75,14 +72,17 @@ const CipherGame = () => {
   });
 
   return (
-    <Container maxWidth={"xl"}>
+    <Container maxWidth={"lg"}>
       <Typography variant="h2" my={3} sx={{ borderBottom: "2px solid black" }}>
         <Link href="/" underline="none" color={"black"}>
           Substition Cipher Game
         </Link>
       </Typography>
-      <Typography variant="h4">Quote by {author}</Typography>
-      <Grid container direction="row" mt={2} spacing={1}>
+      <Typography variant="h4">
+        {quote === "" ? null : "Quote by "}
+        {author}
+      </Typography>
+      <Grid container direction="row" my={2} spacing={1}>
         {words.map((word, wordIndex) => (
           <Grid item key={wordIndex} display={"flex"}>
             {word.split("").map((char, charIndex) =>
@@ -117,7 +117,7 @@ const CipherGame = () => {
       {quote === "" ? (
         <Button
           onClick={fetchNewQuote}
-          sx={{ mt: 3, color: "black", border: "1px solid black" }}
+          sx={{ my: 3, color: "black", border: "1px solid black" }}
         >
           Play Game
         </Button>
@@ -125,13 +125,13 @@ const CipherGame = () => {
         <>
           <Button
             onClick={checkCharacters}
-            sx={{ mt: 3, mr: 2, color: "black", border: "1px solid black" }}
+            sx={{ my: 3, mr: 2, color: "black", border: "1px solid black" }}
           >
             Check
           </Button>{" "}
           <Button
             onClick={fetchNewQuote}
-            sx={{ mt: 3, color: "black", border: "1px solid black" }}
+            sx={{ my: 3, color: "black", border: "1px solid black" }}
           >
             New Game
           </Button>
